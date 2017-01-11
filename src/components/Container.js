@@ -72,7 +72,7 @@ class Container extends React.Component {
 
         switch(this.props.Config.game) {
             case '01':
-                view = (<O1 gameConf={this.props.Config.gameConf} />)
+                view = (<O1 Config={this.props.Config} KeyEvent={this.props.KeyEvent} />)
         }
 
         return (
@@ -93,11 +93,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        changePage: (path) => {
-            dispatch(changePage(path))
+        changePage: (...args) => {
+            dispatch(changePage(...args))
         },
-        shoot: (point, multiple) => {
-            dispatch(shoot(point, multiple))
+        shoot: (...args) => {
+            dispatch(shoot(...args))
         },
         play01: (...args) => {
             dispatch(play01(...args))

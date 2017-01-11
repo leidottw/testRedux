@@ -1,7 +1,9 @@
 import { CHANGE_PAGE, PLAY } from '../actions'
 
 export default function KeyCode(state = {
-    playerList: [],
+    playerList: [{
+        name: 'Ray'
+    }],
     theme: 'dartslive', // dartslive, grandbaord
     scroingMethod: 'soft', // soft, steel
     page: 'Start',

@@ -1,11 +1,23 @@
 import React from 'react'
 
 class O1 extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = this.props.Config.gameConf
+        this.state.playerList = this.props.Config.playerList
+    }
+
     render() {
+        let playerList = [];
+        this.state.playerList.forEach((player) => {
+            playerList.push(<div>{player.name}</div>)
+        });
+
         return (
             <div className="O1">
-                {JSON.stringify(this.props.gameConf)}
                 <div className="main">
+                    {this.state.type}
                     <div class="roundList">
                         <div>#1 100</div>
                         <div>#2 63</div>
@@ -19,7 +31,7 @@ class O1 extends React.Component {
                     </div>
                 </div>
                 <div className="playerList">
-                    <div>player1</div>
+                    {playerList}
                 </div>
             </div>
         );
