@@ -3,30 +3,34 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { setKeyCode } from '../actions'
 
-const DeviceSetting = () => {
-    let blocks = []
-    for(let i = 1; i <= 20; i++) {
-        blocks.push(<Num num={i} key={i} />)
-    }
 
-    return (
-        <div>
-            <h1>Device Setting</h1>
-            <table>
-                <thead>
-                    <th>num</th>
-                    <th>x1 inner</th>
-                    <th>x3</th>
-                    <th>x1 outer</th>
-                    <th>x2</th>
-                </thead>
-                <tbody>
-                    {blocks}
-                    <Bull />
-                </tbody>
-            </table>
-        </div>
-    )
+class DeviceSetting extends React.Component {
+    render() {
+        let blocks = []
+        for(let i = 1; i <= 20; i++) {
+            blocks.push(<Num num={i} key={i} />)
+        }
+
+        return (
+            <div>
+                <div onClick={this.props.changePage.bind(null, 'Start')}>Back</div>
+                <h1>Device Setting</h1>
+                <table>
+                    <thead>
+                        <th>num</th>
+                        <th>x1 inner</th>
+                        <th>x3</th>
+                        <th>x1 outer</th>
+                        <th>x2</th>
+                    </thead>
+                    <tbody>
+                        {blocks}
+                        <Bull />
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
 }
 
 class Num extends React.Component {

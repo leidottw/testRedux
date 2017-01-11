@@ -1,24 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router'
 
 class Start extends React.Component {
     render() {
         return (
             <ul>
                 <li>
-                    <Link to="/_Game01">01</Link>
+                    <div onClick={this.props.changePage.bind(null, '01Menu')}>01</div>
                 </li>
                 <li>
-                    <Link to="/_GameCricket">Cricket</Link>
+                    <div onClick={this.props.changePage.bind(null, 'CricketMenu')}>Cricket</div>
                 </li>
                 <li>
-                    Count Up
+                    <div onClick={this.props.changePage.bind(null, 'CountUpMenu')}>Count Up</div>
                 </li>
                 <li>
-                    Player Setting
+                    <div onClick={this.props.changePage.bind(null, 'PlayerSetting')}>Player Setting</div>
                 </li>
                 <li>
-                    <Link to="/_DeviceSetting">Device Setting</Link>
+                    <div onClick={this.props.changePage.bind(null, 'DeviceSetting')}>Device Setting</div>
                 </li>
             </ul>
         );

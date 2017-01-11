@@ -1,2 +1,3 @@
+export Config from './Config'
 export KeyCode from './KeyCode'
-export b from './rd2'
+export KeyEvent from './KeyEvent'

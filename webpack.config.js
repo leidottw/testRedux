@@ -26,13 +26,13 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-    //     new webpack.optimize.UglifyJsPlugin({
-    //         compress: {
-    //             warnings: false
-    //         },
-    //         output: {
-    //             comments: false
-    //         }
-    //     })
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            }
+        })
     ]
 };
