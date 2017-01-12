@@ -5,14 +5,14 @@ class CountUpMenu extends React.Component {
         return (
             <div>
                 <div onClick={this.props.changePage.bind(null, 'Start')}>Back</div>
-                <h1>Count Up Menu</h1>
+                <h1>COUNT UP</h1>
                 <ul>
-                    <li>Count Up 200</li>
-                    <li>Count Up 400</li>
-                    <li>Count Up 600</li>
-                    <li>Count Up 800</li>
-                    <li>Count Up 1000</li>
-                    <li>High Score</li>
+                    <li>200</li>
+                    <li>400</li>
+                    <li>600</li>
+                    <li>800</li>
+                    <li>1000</li>
+                    <li>HIGH SCORE</li>
                 </ul>
             </div>
         );

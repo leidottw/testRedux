@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { setKeyCode } from '../actions'
+import { setKeyCode, resetKeyCode } from '../actions'
 
 
 class DeviceSetting extends React.Component {
@@ -14,6 +14,7 @@ class DeviceSetting extends React.Component {
         return (
             <div>
                 <div onClick={this.props.changePage.bind(null, 'Start')}>Back</div>
+                <div onClick={this.props.resetKeyCode}>reset key code</div>
                 <h1>Device Setting</h1>
                 <table>
                     <thead>
@@ -95,6 +96,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         setKeyCode: (key, code) => {
             dispatch(setKeyCode(key, code))
+        },
+        resetKeyCode: () => {
+            dispatch(resetKeyCode())
         }
     }
 }
@@ -102,4 +106,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 Num = connect(mapStateToProps, mapDispatchToProps)(Num)
 Bull = connect(mapStateToProps, mapDispatchToProps)(Bull)
 
-export default DeviceSetting
+export default connect(mapStateToProps, mapDispatchToProps)(DeviceSetting)

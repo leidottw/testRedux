@@ -16,6 +16,7 @@ class O1 extends React.Component {
 
         return (
             <div className="O1">
+                <div onClick={this.props.clearPlay}>Exit</div>
                 <div className="main">
                     {this.state.type}
                     <div class="roundList">

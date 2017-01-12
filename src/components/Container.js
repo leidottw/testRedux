@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { shoot, changePage, play01 } from '../actions'
+import { shoot, changePage, play01, playCri, clearPlay } from '../actions'
 import { Start, O1Menu, CricketMenu, CountUpMenu, PlayerSetting, DeviceSetting, O1 } from './'
 
 class Container extends React.Component {
     constructor(props) {
         super(props)
 
-        window.addEventListener("beforeunload", function (e) {
+        window.addEventListener('beforeunload', function (e) {
             var confirmationMessage = 'It looks like you have been editing something. '
                                     + 'If you leave before saving, your changes will be lost.';
 
@@ -15,8 +15,28 @@ class Container extends React.Component {
             return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
         });
 
+        // keypress
+        window.addEventListener('keypress', this.keyPressHandler, false)
 
-        window.addEventListener("keypress", this.keyPressHandler, false)
+        // firebase
+        firebase.initializeApp({
+            apiKey: 'AIzaSyDZhD7BvvzihmUXitZF2qtKSjVn9vP6uL0',
+            authDomain: 'dart-837c4.firebaseapp.com',
+            databaseURL: 'dart-837c4.firebaseio.com',
+            storageBucket: 'dart-837c4.appspot.com'
+        })
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if(user) {
+                firebase.database().ref('/' + user.uid).once('value').then(function(snapshot) {
+                    console.log(snapshot.val())
+                })
+            } else {
+                firebase.auth().signInWithEmailAndPassword(prompt('account'), prompt('password')).catch(function(error) {
+                    console.log(error.errorCode, error.errorMessage)
+                })
+            }
+        })
     }
 
     keyPressHandler = (e) => {
@@ -72,7 +92,7 @@ class Container extends React.Component {
 
         switch(this.props.Config.game) {
             case '01':
-                view = (<O1 Config={this.props.Config} KeyEvent={this.props.KeyEvent} />)
+                view = (<O1 clearPlay={this.props.clearPlay} Config={this.props.Config} KeyEvent={this.props.KeyEvent} />)
         }
 
         return (
@@ -101,6 +121,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         play01: (...args) => {
             dispatch(play01(...args))
+        },
+        playCri: (...args) => {
+            dispatch(playCri(...args))
+        },
+        clearPlay: (...args) => {
+            dispatch(clearPlay(...args))
         }
     }
 }

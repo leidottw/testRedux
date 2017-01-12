@@ -2,8 +2,14 @@
  * action types
  */
 
+// reducer: KeyCode
 export const SET_KEY_CODE = 'SET_KEY_CODE'
+export const RESET_KEY_CODE = 'RESET_KEY_CODE'
+
+// reducer: KeyEvent
 export const SHOOT = 'SHOOT'
+
+// reducer: Config
 export const CHANGE_PAGE = 'CHANGE_PAGE'
 export const PLAY = 'PLAY'
 
@@ -16,6 +22,12 @@ export function setKeyCode(key, code) {
         type: SET_KEY_CODE,
         key,
         code
+    }
+}
+
+export function resetKeyCode() {
+    return {
+        type: RESET_KEY_CODE
     }
 }
 
@@ -53,5 +65,13 @@ export function playCri(type) {
         gameConf: {
             type: 'STANDARD'
         }
+    }
+}
+
+export function clearPlay() {
+    return {
+        type: PLAY,
+        game: undefined,
+        gameConf: undefined
     }
 }

@@ -5,7 +5,7 @@ class O1Menu extends React.Component {
         return (
             <div>
                 <div onClick={this.props.changePage.bind(null, 'Start')}>Back</div>
-                <h1>01 Menu</h1>
+                <h1>01</h1>
                 <ul>
                     <li onClick={this.props.play01.bind(null, 301, 'open', 'open')}>301</li>
                     <li onClick={this.props.play01.bind(null, 501, 'open', 'open')}>501</li>
