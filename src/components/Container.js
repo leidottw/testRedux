@@ -20,10 +20,10 @@ class Container extends React.Component {
 
         // firebase
         firebase.initializeApp({
-            apiKey: 'AIzaSyDZhD7BvvzihmUXitZF2qtKSjVn9vP6uL0',
-            authDomain: 'dart-837c4.firebaseapp.com',
-            databaseURL: 'dart-837c4.firebaseio.com',
-            storageBucket: 'dart-837c4.appspot.com'
+            apiKey: 'AIzaSyDlpb2Cj5MQ56szDwTzJpylv9h4nFD3GpU',
+            authDomain: 'dart-2dcdb.firebaseapp.com',
+            databaseURL: 'dart-2dcdb.firebaseio.com',
+            storageBucket: 'dart-2dcdb.appspot.com'
         })
 
         firebase.auth().onAuthStateChanged(function(user) {

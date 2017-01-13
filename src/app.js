@@ -22,10 +22,10 @@ const store = createStore(
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-        <Route path="/" component={Container} />
-    </Router>
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={Container} />
+        </Router>
+    </Provider>,
+    document.getElementById('app')
 )
