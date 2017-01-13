@@ -32,10 +32,31 @@ class Container extends React.Component {
                 firebase.database().ref('/' + user.uid).once('value').then(function(snapshot) {
                     console.log(snapshot.val())
                 })
+
+                user.providerData.forEach(function(profile) {
+                    console.log("Sign-in provider: "+profile.providerId);
+                    console.log("  Provider-specific UID: "+profile.uid);
+                    console.log("  Name: "+profile.displayName);
+                    console.log("  Email: "+profile.email);
+                    console.log("  Photo URL: "+profile.photoURL);
+                });
             } else {
-                firebase.auth().signInWithEmailAndPassword(prompt('account'), prompt('password')).catch(function(error) {
-                    console.log(error.errorCode, error.errorMessage)
-                })
+                var provider = new firebase.auth.GoogleAuthProvider();
+                firebase.auth().signInWithPopup(provider).then(function(result) {
+                    console.log(result.credential.accessToken)
+                    console.log(result.user)
+                }).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // The email of the user's account used.
+                    var email = error.email;
+                    // The firebase.auth.AuthCredential type that was used.
+                    var credential = error.credential;
+                });
+                // firebase.auth().signInWithEmailAndPassword(prompt('account'), prompt('password')).catch(function(error) {
+                //     console.log(error.errorCode, error.errorMessage)
+                // })
             }
         })
     }

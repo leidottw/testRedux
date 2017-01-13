@@ -18,11 +18,13 @@ class DeviceSetting extends React.Component {
                 <h1>Device Setting</h1>
                 <table>
                     <thead>
-                        <th>num</th>
-                        <th>x1 inner</th>
-                        <th>x3</th>
-                        <th>x1 outer</th>
-                        <th>x2</th>
+                        <tr>
+                            <th>num</th>
+                            <th>x1 inner</th>
+                            <th>x3</th>
+                            <th>x1 outer</th>
+                            <th>x2</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {blocks}

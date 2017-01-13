@@ -10,8 +10,8 @@ class O1 extends React.Component {
 
     render() {
         let playerList = [];
-        this.state.playerList.forEach((player) => {
-            playerList.push(<div>{player.name}</div>)
+        this.state.playerList.forEach((player, index) => {
+            playerList.push(<div key={index}>{player.name}</div>)
         });
 
         return (
@@ -19,13 +19,13 @@ class O1 extends React.Component {
                 <div onClick={this.props.clearPlay}>Exit</div>
                 <div className="main">
                     {this.state.type}
-                    <div class="roundList">
+                    <div className="roundList">
                         <div>#1 100</div>
                         <div>#2 63</div>
                         <div>#2 45</div>
                         <div>#2 73</div>
                     </div>
-                    <div class="currentRound">
+                    <div className="currentRound">
                         <div></div>
                         <div></div>
                         <div></div>

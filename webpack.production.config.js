@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: './production',
-        filename: 'dist/app.bundle.js'
+        filename: 'assets/app.bundle.js'
     },
     module: {
         loaders: [{
@@ -22,7 +22,7 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([{
-            from: './index.html'
+            from: 'src/index.html'
         }]),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

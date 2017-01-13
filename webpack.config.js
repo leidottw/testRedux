@@ -1,11 +1,11 @@
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
     entry: './src/app.js',
     output: {
-        path: './',
-        filename: 'dist/app.bundle.js'
+        path: './dev',
+        filename: 'assets/app.bundle.js'
     },
     module: {
         loaders: [{
@@ -19,5 +19,11 @@ module.exports = {
     },
     postcss: function() {
         return [require('autoprefixer'), require('precss')];
-    }
+    },
+    plugins: [
+        new CopyWebpackPlugin([{
+            from: 'src/index.html'
+        }])
+    ],
+    devtool: 'source-map'
 };
