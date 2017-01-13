@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { shoot, changePage, play01, playCri, clearPlay } from '../actions'
 import { Start, O1Menu, CricketMenu, CountUpMenu, PlayerSetting, DeviceSetting, O1 } from './'
+import firebase from 'firebase'
 
 class Container extends React.Component {
     constructor(props) {
