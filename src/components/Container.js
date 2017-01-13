@@ -29,6 +29,11 @@ class Container extends React.Component {
 
         firebase.auth().onAuthStateChanged(function(user) {
             if(user) {
+                console.log(user)
+
+                // signout
+                firebase.auth().signOut();
+
                 firebase.database().ref('/' + user.uid).once('value').then(function(snapshot) {
                     console.log(snapshot.val())
                 })
@@ -41,22 +46,22 @@ class Container extends React.Component {
                     console.log("  Photo URL: "+profile.photoURL);
                 });
             } else {
-                var provider = new firebase.auth.GoogleAuthProvider();
-                firebase.auth().signInWithPopup(provider).then(function(result) {
-                    console.log(result.credential.accessToken)
-                    console.log(result.user)
-                }).catch(function(error) {
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    // The email of the user's account used.
-                    var email = error.email;
-                    // The firebase.auth.AuthCredential type that was used.
-                    var credential = error.credential;
-                });
-                // firebase.auth().signInWithEmailAndPassword(prompt('account'), prompt('password')).catch(function(error) {
-                //     console.log(error.errorCode, error.errorMessage)
-                // })
+                // var provider = new firebase.auth.GoogleAuthProvider();
+                // firebase.auth().signInWithPopup(provider).then(function(result) {
+                //     console.log(result.credential.accessToken)
+                //     console.log(result.user)
+                // }).catch(function(error) {
+                //     // Handle Errors here.
+                //     var errorCode = error.code;
+                //     var errorMessage = error.message;
+                //     // The email of the user's account used.
+                //     var email = error.email;
+                //     // The firebase.auth.AuthCredential type that was used.
+                //     var credential = error.credential;
+                // });
+                // // firebase.auth().signInWithEmailAndPassword(prompt('account'), prompt('password')).catch(function(error) {
+                // //     console.log(error.errorCode, error.errorMessage)
+                // // })
             }
         })
     }

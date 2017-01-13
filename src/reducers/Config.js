@@ -4,7 +4,7 @@ export default function KeyCode(state = {
     playerList: [{
         name: 'Ray'
     }],
-    theme: 'dartslive', // dartslive, grandbaord
+    theme: 'dartslive', // dartslive, grandboard
     scroingMethod: 'soft', // soft, steel
     page: 'Start',
     game: undefined, // 01, cricket, countup,
