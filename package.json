@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --history-api-fallback --no-info --open",
+    "start": "webpack-dev-server --history-api-fallback --no-info --open --inline --hot",
     "build": "webpack",
     "production": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors"
   },
