@@ -25,5 +25,8 @@ module.exports = {
             from: 'src/index.html'
         }])
     ],
-    devtool: 'source-map'
+    devtool: 'source-map',
+    devServer: {
+	port: 8088
+    }
 };
